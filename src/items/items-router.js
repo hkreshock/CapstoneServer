@@ -3,6 +3,7 @@
 const xss = require('xss');
 const express = require('express');
 const ItemsService = require('./items-service');
+const { requireAuth } = require('../middleware/basic-auth');
 
 const jsonParser = express.json();
 const ItemsRouter = express.Router();
@@ -15,6 +16,7 @@ const serializeItem = item => ({
 });
 
 ItemsRouter.route('/')
+  .all(requireAuth)
   .get((req, res, next) => {
     const knexInstance = req.app.get('db');
     ItemsService.getAllItems(knexInstance)
@@ -52,6 +54,7 @@ ItemsRouter.route('/')
   });
 
 ItemsRouter.route('/:item_id')
+  .all(requireAuth)
   .all((req, res, next) => {
     ItemsService.getById(req.app.get('db'), req.params.item_id)
       .then(item => {

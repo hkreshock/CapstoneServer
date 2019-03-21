@@ -8,15 +8,14 @@ TRUNCATE
 -- $2a$12$.GA.05GnIPcPZf8WpCZbouNzinClxRljDeUEjwTUIxcEIphLAV4xq
 -- dunder password
 
-
-INSERT INTO grocery_users (id, user_name, full_name, password)
+INSERT INTO grocery_users (id, user_name, full_name, email, password)
 VALUES
-  (1, 'dunder', 'Dunder Mifflin', 'password'),
-  (2, 'b.deboop', 'Bodeep Deboop', '$2a$12$e7Sc4gIcabuQ.cl0jJQjteLGusf4sY4Euszh8VmLFuQFi6yOXGvNy'),
-  (3, 'c.bloggs', 'Charlie Bloggs', '$2a$12$jGKOlUVQhe/r21tg.axq8us20ynbVNe4jYchurohoG2HPrRowK1GC'),
-  (4, 's.smith', 'Sam Smith', '$2a$12$yfA8Q5HmJWGE8F.ORvF..uib/DwgXABwg0uB20f9X2evQj9YZP.6O'),
-  (5, 'lexlor', 'Alex Taylor', '$2a$12$0uBMgmMc9KuxaQWTcPSIzuP5/7VkFbLoJ6G5FOtcty8BhhJ49aG6.'),
-  (6, 'wippy', 'Ping Won In', '$2a$12$ntGOlTLG5nEXYgDVqk4bPejBoJP65HfH2JEMc1JBpXaVjXo5RsTUu');
+  (1, 'dunder', 'Dunder Mifflin', 'Dunder@Mifflin.com','password'),
+  (2, 'b.deboop', 'Bodeep Deboop', 'Bodeep@Deboop.com', '$2a$12$e7Sc4gIcabuQ.cl0jJQjteLGusf4sY4Euszh8VmLFuQFi6yOXGvNy'),
+  (3, 'c.bloggs', 'Charlie Bloggs', 'Charlie@Bloggs.com', '$2a$12$jGKOlUVQhe/r21tg.axq8us20ynbVNe4jYchurohoG2HPrRowK1GC'),
+  (4, 's.smith', 'Sam Smith', 'Sam@Smith.com', '$2a$12$yfA8Q5HmJWGE8F.ORvF..uib/DwgXABwg0uB20f9X2evQj9YZP.6O'),
+  (5, 'lexlor', 'Alex Taylor', 'Alex@Taylor.com', '$2a$12$0uBMgmMc9KuxaQWTcPSIzuP5/7VkFbLoJ6G5FOtcty8BhhJ49aG6.'),
+  (6, 'wippy', 'Ping Won In', 'Ping@WonIn.com', '$2a$12$ntGOlTLG5nEXYgDVqk4bPejBoJP65HfH2JEMc1JBpXaVjXo5RsTUu');
 
 INSERT INTO grocery_items (id, title, quantity)
 VALUES

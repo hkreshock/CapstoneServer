@@ -1,5 +1,4 @@
 'use strict';
-const xss = require('xss');
 
 const ItemsService = {
   getAllItems(knex) {
