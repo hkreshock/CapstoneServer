@@ -11,6 +11,7 @@ const ListsRouter = express.Router();
 const serializeList = list => ({
   id: list.id,
   title: xss(list.title),
+  userid: list.userid,
   date_created: list.date_created
 });
 
@@ -25,8 +26,8 @@ ListsRouter.route('/')
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { title, quantity } = req.body;
-    const newList = { title, quantity };
+    const { title, userid } = req.body;
+    const newList = { title, userid };
 
     for (const [key, value] of Object.entries(newList)) {
       // eslint-disable-next-line eqeqeq
@@ -45,7 +46,7 @@ ListsRouter.route('/')
           .json({
             id: list.id,
             title: xss(list.title),
-            quantity: xss(list.quantity),
+            userid: list.userid,
             date_created: list.date_created
           });
       })

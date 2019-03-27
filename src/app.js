@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 require('dotenv').config();
@@ -32,7 +33,6 @@ app.use(function errorHandler(error, req, res, next) {
   if (NODE_ENV === 'production') {
     response = { error: 'Server error' };
   } else {
-    // eslint-disable-next-line no-console
     console.error(error);
     response = { error: error.message, object: error };
   }

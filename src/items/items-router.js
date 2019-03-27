@@ -12,7 +12,8 @@ const serializeItem = item => ({
   id: item.id,
   title: xss(item.title),
   quantity: xss(item.quantity),
-  date_created: item.date_created
+  date_created: item.date_created,
+  listid: item.listid
 });
 
 ItemsRouter.route('/')
@@ -26,8 +27,8 @@ ItemsRouter.route('/')
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { title, quantity } = req.body;
-    const newItem = { title, quantity };
+    const { title, quantity, listid } = req.body;
+    const newItem = { title, quantity, listid };
 
     for (const [key, value] of Object.entries(newItem)) {
       // eslint-disable-next-line eqeqeq
@@ -47,7 +48,8 @@ ItemsRouter.route('/')
             id: item.id,
             title: xss(item.title),
             quantity: xss(item.quantity),
-            date_created: item.date_created
+            date_created: item.date_created,
+            listId: item.listId
           });
       })
       .catch(next);

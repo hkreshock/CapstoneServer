@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 require('dotenv').config();
@@ -17,7 +18,8 @@ ItemsService.getAllItems(db)
       id: 11,
       title: 'New title',
       quantity: '0',
-      date_created: new Date()
+      date_created: new Date(),
+      listid: 1
     })
   )
   .then(newItem => {
@@ -26,12 +28,14 @@ ItemsService.getAllItems(db)
     }).then(() => ItemsService.getById(db, newItem.id));
   })
   .then(item => {
+    process.on('uncaughtException', function(err) {
+      console.log(err);
+    });
     return ItemsService.deleteItem(db, item.id);
   });
 
 app.set('db', db);
 
 app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(`Server listening at http://localhost:${PORT}`);
 });
