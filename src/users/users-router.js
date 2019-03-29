@@ -57,7 +57,7 @@ usersRouter.post('/', jsonBodyParser, (req, res, next) => {
 });
 usersRouter
   .route('/')
-  .all(requireAuth)
+  // .all(requireAuth)
   .get((req, res, next) => {
     const knexInstance = req.app.get('db');
     UsersService.getAllUsers(knexInstance)

@@ -17,7 +17,7 @@ const serializeItem = item => ({
 });
 
 ItemsRouter.route('/')
-  .all(requireAuth)
+  // .all(requireAuth)
   .get((req, res, next) => {
     const knexInstance = req.app.get('db');
     ItemsService.getAllItems(knexInstance)
@@ -56,7 +56,7 @@ ItemsRouter.route('/')
   });
 
 ItemsRouter.route('/:item_id')
-  .all(requireAuth)
+  // .all(requireAuth)
   .all((req, res, next) => {
     ItemsService.getById(req.app.get('db'), req.params.item_id)
       .then(item => {
