@@ -16,7 +16,7 @@ const serializeList = list => ({
 });
 
 ListsRouter.route('/')
-  // .all(requireAuth)
+  .all(requireAuth)
   .get((req, res, next) => {
     const knexInstance = req.app.get('db');
     ListsService.getAllLists(knexInstance)
@@ -54,7 +54,7 @@ ListsRouter.route('/')
   });
 
 ListsRouter.route('/:list_id')
-  // .all(requireAuth)
+  .all(requireAuth)
   .all((req, res, next) => {
     ListsService.getById(req.app.get('db'), req.params.list_id)
       .then(list => {
